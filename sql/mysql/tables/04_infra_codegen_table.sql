@@ -1,0 +1,28 @@
+DROP TABLE IF EXISTS `infra_codegen_table`;
+CREATE TABLE `infra_codegen_table`  (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `data_source_config_id` bigint NOT NULL COMMENT 'Data source config ID',
+  `scene` tinyint NOT NULL DEFAULT 1 COMMENT 'Scene',
+  `table_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Table name',
+  `table_comment` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Table comment',
+  `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'Remark',
+  `module_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Module name',
+  `business_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Business name',
+  `class_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Class name',
+  `class_comment` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Class comment',
+  `author` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Author',
+  `template_type` tinyint NOT NULL DEFAULT 1 COMMENT 'Template type',
+  `front_type` tinyint NOT NULL COMMENT 'Front type',
+  `parent_menu_id` bigint NULL DEFAULT NULL COMMENT 'Parent menu ID',
+  `master_table_id` bigint NULL DEFAULT NULL COMMENT 'Master table ID',
+  `sub_join_column_id` bigint NULL DEFAULT NULL COMMENT 'Sub join column ID',
+  `sub_join_many` bit(1) NULL DEFAULT NULL COMMENT 'Sub join many',
+  `tree_parent_column_id` bigint NULL DEFAULT NULL COMMENT 'Tree parent column ID',
+  `tree_name_column_id` bigint NULL DEFAULT NULL COMMENT 'Tree name column ID',
+  `creator` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT 'Creator',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Create time',
+  `updater` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT 'Updater',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Update time',
+  `deleted` bit(1) NOT NULL DEFAULT b'0' COMMENT 'Deleted',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 196 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'Code generation table definition';

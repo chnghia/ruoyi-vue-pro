@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS `infra_codegen_column`;
+CREATE TABLE `infra_codegen_column`  (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `table_id` bigint NOT NULL COMMENT 'Table ID',
+  `column_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Column name',
+  `data_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Data type',
+  `column_comment` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Column comment',
+  `nullable` bit(1) NOT NULL COMMENT 'Nullable',
+  `primary_key` bit(1) NOT NULL COMMENT 'Primary key',
+  `ordinal_position` int NOT NULL COMMENT 'Ordinal position',
+  `java_type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Java type',
+  `java_field` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Java field',
+  `dict_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT 'Dict type',
+  `example` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'Example',
+  `create_operation` bit(1) NOT NULL COMMENT 'Create operation',
+  `update_operation` bit(1) NOT NULL COMMENT 'Update operation',
+  `list_operation` bit(1) NOT NULL COMMENT 'List operation',
+  `list_operation_condition` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '=' COMMENT 'List operation condition',
+  `list_operation_result` bit(1) NOT NULL COMMENT 'List operation result',
+  `html_type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'HTML type',
+  `creator` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT 'Creator',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Create time',
+  `updater` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT 'Updater',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Update time',
+  `deleted` bit(1) NOT NULL DEFAULT b'0' COMMENT 'Deleted',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2603 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'Code generation table column definition';
